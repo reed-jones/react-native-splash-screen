@@ -139,7 +139,7 @@ Update `AppDelegate.m` with the following additions:
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-#import "SplashScreen.h"  // here
+#import "RNSplashScreen.h"  // here
 
 @implementation AppDelegate
 
@@ -147,7 +147,7 @@ Update `AppDelegate.m` with the following additions:
 {
     // ...other code
 
-    [SplashScreen show];  // here
+    [RNSplashScreen show];  // here
     return YES;
 }
 
@@ -183,12 +183,15 @@ You can create splash screens in the following folders:
 * `drawable-xxhdpi`
 * `drawable-xxxhdpi`
 
-Add a color called `primary_dark` in `app/src/main/res/values/colors.xml`
+Add a color called `primary_dark` in `app/src/main/res/values/color.xml`
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_dark">#000000</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="brand_primary">#0F0F0F</color>
 </resources>
 ```
 
@@ -204,8 +207,10 @@ Open `android/app/src/main/res/values/styles.xml` and add `<item name="android:w
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <!--设置透明背景-->
-        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:statusBarColor">@color/brand_primary</item>
+        <item name="android:windowBackground">@color/brand_primary</item>
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorPrimaryDark">@color/brand_primary</item>
     </style>
 </resources>
 ```
